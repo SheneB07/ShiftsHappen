@@ -1,6 +1,10 @@
     </main>
-    <footer class="site-footer">
-        <p>&copy; <?= date('Y') ?> ShiftsHappen</p>
+    <footer class="site-footer" style="background: var(--footer-bg); color: var(--footer-text);">
+        <?php if (!empty($siteSettings['footer_html'])): ?>
+            <?= $siteSettings['footer_html'] ?>
+        <?php else: ?>
+            <p>&copy; <?= date('Y') ?> ShiftsHappen</p>
+        <?php endif; ?>
         <p><a href="<?= view('login.php') ?>">Admin login</a></p>
     </footer>
 

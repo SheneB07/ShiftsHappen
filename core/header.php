@@ -35,17 +35,42 @@ $socialLinks = $con->query('SELECT platform, url FROM socials ORDER BY volgorde 
     <header class="site-header">
         <div class="site-header__inner">
             <a class="site-logo" href="<?= view('pages.php') ?>?slug=home">
-                <span class="site-logo__mark">SH</span>
-                <span class="site-logo__text">ShiftsHappen</span>
+                <?php if (!empty($siteSettings['header_logo'])): ?>
+                    <img src="<?= asset(testInput($siteSettings['header_logo'])) ?>" alt="<?= testInput($siteSettings['header_title'] ?? 'ShiftsHappen') ?>" class="site-logo__img">
+                <?php else: ?>
+                    <span class="site-logo__mark">SH</span>
+                    <span class="site-logo__text"><?= testInput($siteSettings['header_title'] ?? 'ShiftsHappen') ?></span>
+                <?php endif; ?>
             </a>
 
             <nav class="site-nav">
-                <?php if ($navPages): ?>
-                    <?php while ($navPage = $navPages->fetch_assoc()): ?>
-                        <a href="<?= view('pages.php') ?>?slug=<?= urlencode($navPage['slug']) ?>">
-                            <?= testInput($navPage['titel']) ?>
-                        </a>
-                    <?php endwhile; ?>
+                <?php if (!empty($siteSettings['header_nav'])): ?>
+                    <?php
+                        $slugs = array_filter(array_map('trim', explode(',', $siteSettings['header_nav'])));
+                        foreach ($slugs as $slug) {
+                            $title = ucfirst($slug);
+                            $stmt = $con->prepare('SELECT titel FROM paginas WHERE slug = ? LIMIT 1');
+                            if ($stmt) {
+                                $stmt->bind_param('s', $slug);
+                                $stmt->execute();
+                                $res = $stmt->get_result();
+                                if ($res && $row = $res->fetch_assoc()) {
+                                    $title = testInput($row['titel']);
+                                }
+                                $stmt->close();
+                            }
+                            ?>
+                            <a href="<?= view('pages.php') ?>?slug=<?= urlencode($slug) ?>"><?= $title ?></a>
+                        <?php }
+                    ?>
+                <?php else: ?>
+                    <?php if ($navPages): ?>
+                        <?php while ($navPage = $navPages->fetch_assoc()): ?>
+                            <a href="<?= view('pages.php') ?>?slug=<?= urlencode($navPage['slug']) ?>">
+                                <?= testInput($navPage['titel']) ?>
+                            </a>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 <?php endif; ?>
             </nav>
 
