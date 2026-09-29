@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: #f9fafb;
+    min-height: 100vh;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.loginForm {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    color: #111827;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.loginForm header {
+    margin: 0 0 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.inputField {
+    margin-bottom: 1rem;
+}
+
+.inputField label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.inputField input,
+.inputField textarea,
+.inputField select {
+    width: 100%;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.inputField input[type="submit"],
+button {
+    background: #4CAF76;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.inputField input[type="submit"]:hover,
+button:hover {
+    background: #3b885b;
+}
+
+.link {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.link a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+.pop-up {
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.pop-up--error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.pop-up--success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}

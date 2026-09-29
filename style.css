@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Grotesk';
+}
+
+
+header{
+    width: 100%;
+    height: 130px;
+    background-color: #4CAF76;
+    display: flex;
+    align-items: center;
+}
+
+#header-logo{
+    width: 150px;
+    height: auto;
+    padding-left: 30px;
+}
+
+.header-row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-column{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 75px;
+}
+/*Einde header */
+
+/*Begin footer*/
+footer{
+    width: 100%;
+    height: auto;
+    background-color: #3A3A4A;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-row{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-column1, .footer-column2, .footer-column3{
+    width: 33%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    font-size: 80%;
+    color: white;
+    padding: 10px;
+}
+
+#page-options{
+    border-left: solid white 2px;
+    border-right: solid white 2px;
+}
+
+.footer-column3{
+    text-align: left;
+    justify-content: center;
+}
+
+.copyright-bar{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: white;
+    display: flex;
+    padding: 12px;
+    font-size: 80%;
+    justify-content: center;
+}
+
+#contact-info{
+    text-align: left;
+}
+/*Einde footer*/
